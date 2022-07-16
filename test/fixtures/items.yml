@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  desc: MyText
+  item_name: MyString
+  qty: 1
+  tax1: 1
+  tax2: 1
+  unit_cost: 9.99
+
+two:
+  desc: MyText
+  item_name: MyString
+  qty: 1
+  tax1: 1
+  tax2: 1
+  unit_cost: 9.99

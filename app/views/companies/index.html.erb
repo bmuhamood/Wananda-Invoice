@@ -1,0 +1,27 @@
+<h1>Companies</h1>
+
+<%= form_with url: "", method: :get, data: { turbo_frame: "companies", turbo_action: "advance" } do |form| %>
+  Show <%= form.select :count, options_for_select([10, 25, 50, 100], selected: params[:count]), {}, { onchange: "this.form.requestSubmit()" } %>
+
+  Search <%= form.search_field :query, value: params[:query], oninput: "this.form.requestSubmit()" %>
+<% end %>
+
+<%= turbo_frame_tag "companies" do %>
+  <div class="table">
+    <div class="table-header-group">
+    <%= sort_link_to "Business Phone", :business_phone, class: "table-cell pr-4", data: { turbo_action: "advance" } %>
+    <%= sort_link_to "City", :city, class: "table-cell pr-4", data: { turbo_action: "advance" } %>
+    <%= sort_link_to "Country", :country, class: "table-cell pr-4", data: { turbo_action: "advance" } %>
+    <%= sort_link_to "Fax", :fax, class: "table-cell pr-4", data: { turbo_action: "advance" } %>
+    <%= sort_link_to "Name", :name, class: "table-cell pr-4", data: { turbo_action: "advance" } %>
+    <%= sort_link_to "State", :state, class: "table-cell pr-4", data: { turbo_action: "advance" } %>
+    <%= sort_link_to "Street_1", :street_1, class: "table-cell pr-4", data: { turbo_action: "advance" } %>
+    <%= sort_link_to "Street_2", :street_2, class: "table-cell pr-4", data: { turbo_action: "advance" } %>
+    <%= sort_link_to "Zip_Code", :zip_code, class: "table-cell pr-4", data: { turbo_action: "advance" } %>
+  </div>
+  
+  <%= render @companies %>
+  </div>
+  <%== pagy_nav @pagy %>
+  <% end %>
+  <%= link_to "New company", new_company_path %>
